@@ -1,0 +1,5 @@
+package com.scopes;
+
+public class ScopeServlet {
+
+}

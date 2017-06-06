@@ -1,0 +1,11 @@
+package jspexample;
+
+import ujava.lang.Object;
+
+public class JspExample extends Object {
+
+	public JspExample() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

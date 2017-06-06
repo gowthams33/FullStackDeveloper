@@ -1,0 +1,37 @@
+package coreJava.basics;
+
+import java.util.Scanner;
+
+public class scanClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		/** System.out.print("Enter An Integer : ");
+		System.out.print(scanner.nextInt()+"\n");
+		System.out.println("--------------------");
+		int b = scanner.nextInt();
+		int c = scanner.nextInt();
+		int a;
+		System.out.println(a=b*c);
+		System.out.println("-----------------------------");
+		byte _check = 10;
+		short $variable = 25;
+		int 5var = 100;
+		* float in_+ = 20.8f;
+		* double t@d = 10000.9876543d;
+		*/System.out.println("-----------------------------");
+		int  x = 2;
+		int y = 3;
+		System.out.printf("x = %d\n", x );
+		System.out.printf("Value of %d + %d = %d\n",x,x,(x+x));
+		System.out.printf("x =");
+		System.out.printf("%d = %d\n", (x+y), (y+x));
+		System.out.println("-----------------------------");
+		System.out.println( (3 * 9 *(3 +(9 * 3 /(3 ) ) ) ) );
+		String name = "Site is Studytonight .com" ;
+		System.out.println(name.replace("com", "in"));
+		scanner.close();
+	}
+
+}
