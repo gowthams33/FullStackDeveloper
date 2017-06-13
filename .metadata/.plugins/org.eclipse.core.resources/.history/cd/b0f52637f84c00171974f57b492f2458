@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert </title>
+</head>
+<body>
+<form action="InsertServlet">
+<center>
+<b>UserName :</b><input type="text" name="user" checked="checked"><br><br>
+<b>Password :</b><input type="password" name="pass" checked="checked"><br><br>
+<b>Date :</b><input type="text" name="dat" checked="checked"><br><br>
+<b>Status :</b><input type="text" name="stat" checked="checked"><br><br>
+<b>Address :</b><input type="text" name="add" height="20" width="20" checked="checked"><br><br>
+<input type="submit" border="2" style="background-color:green">
+</center>
+</form>
+</body>
+</html>

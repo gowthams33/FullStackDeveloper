@@ -1,0 +1,47 @@
+package com.project.servlet;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.project.Bean.LoginDetails;
+import com.project.DAO.FunctionDAO;
+
+@SuppressWarnings("serial")
+public class MainServlet extends HttpServlet{
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		try {
+			
+			
+			LoginDetails details = new LoginDetails();
+			details.setUsername(req.getParameter("user"));
+			details.setPassword(req.getParameter("pass"));
+			details.setDate(req.getParameter("dat"));
+			details.setStatus(req.getParameter("stat"));
+			details.setAddress(req.getParameter("add"));
+			
+			FunctionDAO.insert(details);
+			
+			List<LoginDetails> login = new FunctionDAO().ViewTable();
+			
+			req.setAttribute("list", login);
+			resp.getWriter().println("<h1>before</h1>");
+			RequestDispatcher rd = req.getRequestDispatcher("/display.jsp");
+			rd.include(req, resp);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

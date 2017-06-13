@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+    <tlib-version>2.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+  	<short-name>custom</short-name>
+  	<uri>http://training.org/tag-taglib</uri>
+<function>
+        <name>custom</name>
+        <function-class>cus.training.TableComplexTag</function-class>
+        <function-signature>java.lang.Integer length( java.lang.String )</function-signature>
+</function>
+
+<tag>
+<name>customtag</name>
+<tag-class>cus.training.TableComplexTag</tag-class>
+<body-content>JSP</body-content>
+<attribute>
+   <name>data</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+</attribute>
+
+</tag>
+
+</taglib>

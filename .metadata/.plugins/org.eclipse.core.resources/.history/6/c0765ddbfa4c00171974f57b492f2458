@@ -1,0 +1,58 @@
+package com.project.DAO;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.project.Bean.LoginDetails;
+import com.project.Util.DatabaseConnection;
+
+public class FunctionDAO {
+	
+	
+	public static void insert(LoginDetails login) throws SQLException, Exception{
+		
+		Statement stmt = DatabaseConnection.getConnection().createStatement();
+		DateFormat df=new SimpleDateFormat("dd/MM/yyyy");
+		String da = login.getDate();
+		
+		Date dat = df.parse(da);
+		String sql = "insert into login values('"+login.getUsername()+"','"+login.getPassword()+"','"+df.format(dat)+"','"+login.getStatus()+"','"+login.getAddress()+"')";
+		int i = stmt.executeUpdate(sql);
+		if(i>1)
+			System.out.println("Success");
+	}
+	
+	public List<LoginDetails> ViewTable() throws SQLException, Exception{
+		List<LoginDetails> list = new ArrayList<>();
+				
+		Statement stmt = DatabaseConnection.getConnection().createStatement();
+		String sql = "select *from login";
+		ResultSet set = stmt.executeQuery(sql);
+		String str = set.getString("login_date");
+		DateFormat df=new SimpleDateFormat("dd/MM/yyyy");
+		while (set.next()) {
+			LoginDetails details = new LoginDetails();
+			details.setUsername(set.getString("username"));
+			details.setPassword(set.getString("password"));
+			details.setDate(""+df.parse(str));
+			details.setStatus(set.getString("status"));
+			details.setAddress(set.getString("address"));
+			list.add(details);
+			
+		}
+		
+		if(set != null)
+			set.close();
+		if(stmt != null)
+			stmt.close();
+		if(DatabaseConnection.getConnection() != null)
+			DatabaseConnection.getConnection().close();
+		return list;
+	}
+}

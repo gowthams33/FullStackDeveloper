@@ -1,0 +1,9 @@
+package com.project.Bean;
+
+public class LoginDetails {
+
+	public LoginDetails() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

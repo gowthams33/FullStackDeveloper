@@ -1,0 +1,39 @@
+package com.project.DAO;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.project.Bean.LoginDetails;
+import com.project.Util.DatabaseConnection;
+
+public class FunctionDAO {
+	
+	public List<LoginDetails> ViewTable() throws SQLException, Exception{
+		List<LoginDetails> list = new ArrayList<>();
+		LoginDetails details = new LoginDetails();		
+		Statement stmt = DatabaseConnection.getConnection().createStatement();
+		String sql = "select *from login";
+		ResultSet set = stmt.executeQuery(sql);
+		//String str = set.getString("login_date");
+		while (set.next()) {
+			details.setUsername(set.getString("username"));
+			details.setPassword(set.getString("password"));
+			details.setDate(set.getString("login_date"));
+			details.setStatus(set.getString("status"));
+			details.setAddress(set.getString("address"));
+			list.add(details);
+			
+		}
+		System.out.println(list);
+		if(set != null)
+			set.close();
+		if(stmt != null)
+			stmt.close();
+		if(DatabaseConnection.getConnection() != null)
+			DatabaseConnection.getConnection().close();
+		return list;
+	}
+}

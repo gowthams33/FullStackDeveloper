@@ -1,0 +1,9 @@
+package cus.training;
+
+public class TableComplexTag {
+
+	public TableComplexTag() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
